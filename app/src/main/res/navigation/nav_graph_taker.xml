@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_taker"
+    app:startDestination="@id/takerDashboardFragment">
+    <fragment android:id="@+id/homeFragment"
+        android:name="com.photoconnect.ui.fragments.HomeFragment"
+        android:label="Explore" />
+    <fragment android:id="@+id/takerDashboardFragment"
+        android:name="com.photoconnect.ui.fragments.TakerDashboardFragment"
+        android:label="Dashboard" />
+    <fragment android:id="@+id/bookingsFragment"
+        android:name="com.photoconnect.ui.fragments.BookingsFragment"
+        android:label="Orders" />
+    <fragment android:id="@+id/takerProfileFragment"
+        android:name="com.photoconnect.ui.fragments.ProfileFragment"
+        android:label="Account" />
+</navigation>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="?attr/colorSurface">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="@android:color/transparent" app:elevation="0dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@drawable/bg_home_header"
+                android:padding="20dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="24dp">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:id="@+id/tvGreeting"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:textSize="24sp" android:textStyle="bold" android:textColor="?attr/colorOnSurface"
+                            android:text="Hello, Explorer" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="@string/home_headline_tagline" android:textSize="14sp"
+                            android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="2dp" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <FrameLayout
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_marginEnd="12dp">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnNotifications"
+                                style="@style/Widget.Material3.Button.IconButton"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:contentDescription="@string/home_notifications"
+                                android:insetTop="0dp"
+                                android:insetBottom="0dp"
+                                android:padding="12dp"
+                                app:backgroundTint="?attr/colorSurface"
+                                app:icon="@drawable/ic_notifications"
+                                app:iconTint="?attr/colorOnSurface"
+                                app:strokeColor="?attr/colorOutlineVariant"
+                                app:strokeWidth="1dp" />
+
+                            <TextView
+                                android:id="@+id/tvNotificationBadge"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top|end"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginEnd="4dp"
+                                android:background="@drawable/bg_chip_primary"
+                                android:gravity="center"
+                                android:minWidth="20dp"
+                                android:paddingStart="6dp"
+                                android:paddingTop="2dp"
+                                android:paddingEnd="6dp"
+                                android:paddingBottom="2dp"
+                                android:textColor="@android:color/white"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:visibility="gone"
+                                tools:text="3"
+                                tools:visibility="visible" />
+                        </FrameLayout>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/cardHeaderProfile"
+                            android:layout_width="54dp"
+                            android:layout_height="54dp"
+                            app:cardCornerRadius="27dp"
+                            app:cardElevation="4dp"
+                            app:strokeWidth="2dp"
+                            app:strokeColor="?attr/colorPrimary"
+                            app:cardBackgroundColor="?attr/colorSurface">
+                            <ImageView
+                                android:id="@+id/ivHeaderProfile"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_person_placeholder" />
+                        </com.google.android.material.card.MaterialCardView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
+                    app:strokeColor="?attr/colorOutlineVariant"
+                    app:cardBackgroundColor="?attr/colorSurface">
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/searchView"
+                        android:layout_width="match_parent" android:layout_height="56dp"
+                        app:queryHint="@string/search_hint"
+                        app:iconifiedByDefault="false"
+                        app:searchIcon="@drawable/ic_search"
+                        android:theme="@style/ThemeOverlay.Material3.TextInputEditText"
+                        style="@style/Widget.Material3.SearchView" />
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="?attr/colorSurface"
+            android:paddingTop="8dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCategories"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:paddingBottom="16dp" android:paddingStart="16dp" android:paddingEnd="16dp"
+                android:clipToPadding="false" android:orientation="horizontal" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="?attr/colorOutlineVariant" />
+        </LinearLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent" android:layout_height="match_parent">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:paddingBottom="40dp">
+
+                <!-- Featured section (Story-like) -->
+                <LinearLayout android:id="@+id/sectionFeatured"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:layout_marginTop="20dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical"
+                        android:paddingHorizontal="20dp" android:layout_marginBottom="16dp">
+                        <TextView android:id="@+id/tvFeaturedTitle" android:layout_width="0dp" android:layout_height="wrap_content"
+                            android:layout_weight="1" android:text="@string/featured_takers"
+                            android:textStyle="bold" android:textSize="20sp"
+                            android:textColor="?attr/colorOnSurface" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="@string/view_all" android:textColor="?attr/colorPrimary"
+                            android:textSize="14sp" android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvFeatured"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:paddingStart="16dp" android:paddingEnd="16dp"
+                        android:clipToPadding="false" android:orientation="horizontal" />
+                </LinearLayout>
+
+                <!-- Filter Row -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:paddingHorizontal="20dp" android:layout_marginTop="32dp" android:layout_marginBottom="16dp">
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center_vertical">
+                        <TextView android:id="@+id/tvBrowseTitle" android:layout_width="match_parent" android:layout_height="wrap_content"
+                            android:text="@string/home_browse_section_title"
+                            android:textStyle="bold" android:textSize="20sp"
+                            android:textColor="?attr/colorOnSurface" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnDateFilter"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/home_date_filter"
+                            app:icon="@drawable/ic_calendar"
+                            app:iconSize="16dp"
+                            app:cornerRadius="12dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnClearDateFilter"
+                            style="@style/Widget.Material3.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/home_clear_date_filter"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchAvailableOnly"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/home_filter_available_only"
+                        android:textSize="13sp"
+                        android:visibility="gone"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+
+                <!-- Shimmer placeholder -->
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmerLayout"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:visibility="gone">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="16dp">
+                        <View android:layout_width="match_parent" android:layout_height="220dp" android:background="@drawable/bg_shimmer_placeholder" android:layout_marginBottom="16dp" />
+                        <View android:layout_width="match_parent" android:layout_height="220dp" android:background="@drawable/bg_shimmer_placeholder" />
+                    </LinearLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <!-- Empty state -->
+                <LinearLayout android:id="@+id/layoutEmpty" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"
+                    android:gravity="center" android:padding="60dp" android:visibility="gone">
+                    <ImageView android:layout_width="100dp" android:layout_height="100dp"
+                        android:src="@drawable/ic_search" app:tint="?attr/colorOutline" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="@string/no_takers_found" android:textSize="18sp"
+                        android:textStyle="bold" android:layout_marginTop="20dp"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <!-- Taker Grid -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTakers"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="24dp"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

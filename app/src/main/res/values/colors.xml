@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ══════════════════════════════════════════════
+         PhotoConnect — Material 3 Color System (Light)
+         Primary: Deep Blue brand
+         Secondary: Amber accent
+    ══════════════════════════════════════════════ -->
+
+    <!-- Primary -->
+    <color name="md_theme_light_primary">#1A56DB</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#D6E4FF</color>
+    <color name="md_theme_light_onPrimaryContainer">#00184E</color>
+
+    <!-- Secondary -->
+    <color name="md_theme_light_secondary">#F59E0B</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#FEF3C7</color>
+    <color name="md_theme_light_onSecondaryContainer">#3B1A00</color>
+
+    <!-- Tertiary (for accents like review stars) -->
+    <color name="md_theme_light_tertiary">#FF6B35</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_tertiaryContainer">#FFE8DC</color>
+    <color name="md_theme_light_onTertiaryContainer">#3B0D00</color>
+
+    <!-- Error -->
+    <color name="md_theme_light_error">#E53935</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+    <color name="md_theme_light_errorContainer">#FDECEA</color>
+    <color name="md_theme_light_onErrorContainer">#7F0000</color>
+
+    <!-- Background / Surface -->
+    <color name="md_theme_light_background">#F8FAFC</color>
+    <color name="md_theme_light_onBackground">#1C1B1F</color>
+    <color name="md_theme_light_surface">#FFFFFF</color>
+    <color name="md_theme_light_onSurface">#1C1B1F</color>
+    <color name="md_theme_light_surfaceVariant">#EEF2FF</color>
+    <color name="md_theme_light_onSurfaceVariant">#44464F</color>
+    <color name="md_theme_light_surfaceTint">#1A56DB</color>
+
+    <!-- Outline -->
+    <color name="md_theme_light_outline">#767680</color>
+    <color name="md_theme_light_outlineVariant">#C7C6D0</color>
+
+    <!-- Inverse -->
+    <color name="md_theme_light_inverseSurface">#313033</color>
+    <color name="md_theme_light_inverseOnSurface">#F4EFF4</color>
+    <color name="md_theme_light_inversePrimary">#ADC6FF</color>
+
+    <!-- ══════════════════════════════════════════════
+         DARK THEME colors
+    ══════════════════════════════════════════════ -->
+    <color name="md_theme_dark_primary">#ADC6FF</color>
+    <color name="md_theme_dark_onPrimary">#002E6C</color>
+    <color name="md_theme_dark_primaryContainer">#00429A</color>
+    <color name="md_theme_dark_onPrimaryContainer">#D6E4FF</color>
+
+    <color name="md_theme_dark_secondary">#FCD34D</color>
+    <color name="md_theme_dark_onSecondary">#3B2000</color>
+    <color name="md_theme_dark_secondaryContainer">#562E00</color>
+    <color name="md_theme_dark_onSecondaryContainer">#FEF3C7</color>
+
+    <color name="md_theme_dark_tertiary">#FFBA94</color>
+    <color name="md_theme_dark_onTertiary">#5F1A00</color>
+    <color name="md_theme_dark_tertiaryContainer">#872800</color>
+    <color name="md_theme_dark_onTertiaryContainer">#FFE8DC</color>
+
+    <color name="md_theme_dark_error">#FFB4AB</color>
+    <color name="md_theme_dark_onError">#690005</color>
+    <color name="md_theme_dark_errorContainer">#93000A</color>
+    <color name="md_theme_dark_onErrorContainer">#FFDAD6</color>
+
+    <color name="md_theme_dark_background">#1C1B1F</color>
+    <color name="md_theme_dark_onBackground">#E6E1E5</color>
+    <color name="md_theme_dark_surface">#1C1B1F</color>
+    <color name="md_theme_dark_onSurface">#E6E1E5</color>
+    <color name="md_theme_dark_surfaceVariant">#232B3E</color>
+    <color name="md_theme_dark_onSurfaceVariant">#C5C6D0</color>
+    <color name="md_theme_dark_surfaceTint">#ADC6FF</color>
+
+    <color name="md_theme_dark_outline">#8F909A</color>
+    <color name="md_theme_dark_outlineVariant">#44464F</color>
+
+    <color name="md_theme_dark_inverseSurface">#E6E1E5</color>
+    <color name="md_theme_dark_inverseOnSurface">#313033</color>
+    <color name="md_theme_dark_inversePrimary">#1A56DB</color>
+
+    <!-- ══════════════════════════════════════════════
+         Semantic aliases (used in code/layouts)
+    ══════════════════════════════════════════════ -->
+    <color name="colorPrimary">@color/md_theme_light_primary</color>
+    <color name="colorPrimaryDark">#0D47A1</color>
+    <color name="colorAccent">@color/md_theme_light_secondary</color>
+    <color name="colorBackground">@color/md_theme_light_background</color>
+    <color name="colorSurface">@color/md_theme_light_surface</color>
+    <color name="colorTextPrimary">@color/md_theme_light_onBackground</color>
+    <color name="colorTextSecondary">@color/md_theme_light_onSurfaceVariant</color>
+
+    <!-- Status colours (availability) -->
+    <color name="colorAvailable">#22C55E</color>
+    <color name="colorBooked">#EF4444</color>
+    <color name="colorNotAvailable">#94A3B8</color>
+    <color name="colorPending">#F59E0B</color>
+
+    <!-- Star rating -->
+    <color name="colorStar">#FBBF24</color>
+    <color name="colorStarEmpty">#D1D5DB</color>
+
+    <!-- Gradient start/end -->
+    <color name="gradientStart">#1A56DB</color>
+    <color name="gradientEnd">#7C3AED</color>
+</resources>

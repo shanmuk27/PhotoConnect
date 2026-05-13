@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="24dp"
+    android:background="?attr/colorSurface">
+
+    <!-- Drag handle -->
+    <View android:layout_width="40dp" android:layout_height="4dp"
+        android:layout_gravity="center_horizontal" android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_drag_handle" />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/confirm_booking" android:textSize="20sp" android:textStyle="bold"
+        android:textColor="?attr/colorOnSurface" android:layout_marginBottom="4dp" />
+
+    <TextView android:id="@+id/tvTakerNameBs" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textSize="14sp"
+        android:textColor="?attr/colorPrimary" android:layout_marginBottom="20dp" />
+
+    <TextView android:id="@+id/tvServiceTypeBs" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textSize="13sp"
+        android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginBottom="20dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilBookingServiceType"
+        style="@style/Widget.PhotoConnect.TextInputLayout.Dropdown"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp" android:hint="Booking service">
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView android:id="@+id/actvBookingServiceType"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:minHeight="@dimen/text_field_min_height"
+            android:gravity="center_vertical"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="?attr/colorOutlineVariant"
+        app:cardBackgroundColor="?attr/colorSurfaceVariant" app:cardCornerRadius="16dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="14dp">
+            <TextView android:id="@+id/tvBookingDateLabel"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textSize="12sp" android:textColor="?attr/colorOnSurfaceVariant" />
+            <TextView android:id="@+id/tvSelectedDate"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="17sp" android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.PhotoConnect.TextInputLayout"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp" android:hint="@string/event_location">
+        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etEventLocation"
+            android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.PhotoConnect.TextInputLayout"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp" android:hint="@string/notes_placeholder">
+        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etNotes"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="textMultiLine" android:minLines="2" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:layout_gravity="center" android:visibility="gone" />
+
+    <com.google.android.material.button.MaterialButton android:id="@+id/btnConfirmBook"
+        style="@style/Widget.PhotoConnect.Button.Primary"
+        android:layout_width="match_parent" android:layout_height="@dimen/button_height"
+        android:text="@string/confirm_booking" />
+</LinearLayout>

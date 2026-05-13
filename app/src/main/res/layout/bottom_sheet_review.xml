@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="24dp"
+    android:background="?attr/colorSurface">
+    <View android:layout_width="40dp" android:layout_height="4dp"
+        android:layout_gravity="center_horizontal" android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_drag_handle" />
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/write_review" android:textSize="20sp" android:textStyle="bold"
+        android:textColor="?attr/colorOnSurface" android:layout_marginBottom="16dp" />
+    <RatingBar android:id="@+id/ratingBar" style="@style/Widget.AppCompat.RatingBar"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:numStars="5" android:stepSize="1" android:layout_marginBottom="16dp"
+        android:progressTint="@color/colorStar" />
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.PhotoConnect.TextInputLayout"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp" android:hint="Share your experience…">
+        <com.google.android.material.textfield.TextInputEditText android:id="@+id/etReview"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="textMultiLine" android:minLines="3" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.button.MaterialButton android:id="@+id/btnSubmitReview"
+        style="@style/Widget.PhotoConnect.Button.Primary"
+        android:layout_width="match_parent" android:layout_height="@dimen/button_height"
+        android:text="Submit Review" />
+</LinearLayout>

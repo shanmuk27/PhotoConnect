@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="?attr/colorSurface" app:elevation="0dp">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+            app:title="Creator Dashboard" app:titleCentered="true" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="20dp">
+
+            <TextView android:id="@+id/tvWelcome" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="24sp" android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface" android:layout_marginBottom="24dp" />
+
+            <!-- Reminder Banner -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardReminder"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp" app:cardCornerRadius="16dp"
+                app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="?attr/colorTertiary"
+                app:cardBackgroundColor="?attr/colorTertiaryContainer" android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
+                    <ImageView android:layout_width="28dp" android:layout_height="28dp"
+                        android:src="@drawable/ic_calendar" app:tint="?attr/colorTertiary" />
+                    <TextView
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginStart="12dp"
+                        android:text="Increase your visibility! Update your calendar to show clients you're ready for hire."
+                        android:textSize="14sp" android:textColor="?attr/colorOnTertiaryContainer"
+                        android:lineHeight="20sp" />
+                    <ImageButton
+                        android:id="@+id/btnCloseReminder"
+                        android:layout_width="36dp" android:layout_height="36dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        app:tint="?attr/colorTertiary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Calendar Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp" app:cardElevation="2dp" app:strokeWidth="0dp">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="12dp">
+
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="48dp"
+                        android:layout_marginBottom="8dp">
+                        <ImageButton android:id="@+id/btnPrevMonth" android:layout_width="40dp" android:layout_height="40dp"
+                            android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_arrow_back"
+                            android:layout_alignParentStart="true" android:layout_centerVertical="true" />
+
+                        <TextView android:id="@+id/tvCurrentMonth" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:layout_centerInParent="true"
+                            android:textSize="16sp" android:textStyle="bold" android:textColor="?attr/colorOnSurface" />
+
+                        <ImageButton android:id="@+id/btnNextMonth" android:layout_width="40dp" android:layout_height="40dp"
+                            android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_arrow_forward"
+                            android:layout_alignParentEnd="true" android:layout_centerVertical="true" />
+                    </RelativeLayout>
+
+                    <com.photoconnect.ui.views.AvailabilityCalendarView android:id="@+id/calendarView"
+                        android:layout_width="match_parent" android:layout_height="320dp" />
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center" android:layout_marginTop="12dp"
+                        android:paddingBottom="8dp">
+                        <View android:layout_width="8dp" android:layout_height="8dp" android:background="#22C55E" android:layout_gravity="center_vertical" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Available" android:textSize="11sp" android:layout_marginEnd="16dp" />
+                        <View android:layout_width="8dp" android:layout_height="8dp" android:background="#EF4444" android:layout_gravity="center_vertical" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Booked" android:textSize="11sp" android:layout_marginEnd="16dp" />
+                        <View android:layout_width="8dp" android:layout_height="8dp" android:background="#94A3B8" android:layout_gravity="center_vertical" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Busy" android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Quick Actions -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Bulk Selection Actions" android:textSize="14sp" android:textStyle="bold"
+                android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="32dp" android:layout_marginBottom="16dp" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnMarkAvailable"
+                    android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1"
+                    android:layout_marginEnd="8dp" android:text="Mark Available"
+                    android:backgroundTint="#22C55E" app:cornerRadius="16dp" android:textSize="14sp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnMarkUnavailable"
+                    android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1"
+                    android:text="Mark Busy" android:backgroundTint="#94A3B8" app:cornerRadius="16dp" android:textSize="14sp" />
+            </LinearLayout>
+
+            <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_gravity="center"
+                android:layout_marginTop="24dp" android:visibility="gone" />
+
+            <View android:layout_width="match_parent" android:layout_height="100dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

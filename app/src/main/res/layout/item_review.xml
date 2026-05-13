@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp" android:layout_marginVertical="8dp"
+    app:cardCornerRadius="20dp" app:cardElevation="0dp"
+    app:strokeWidth="1dp" app:strokeColor="?attr/colorOutlineVariant"
+    app:cardBackgroundColor="?attr/colorSurface">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="40dp" android:layout_height="40dp"
+                android:src="@drawable/ic_person_placeholder"
+                app:civ_border_width="1dp" app:civ_border_color="?attr/colorOutlineVariant" />
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical" android:layout_marginStart="12dp">
+
+                <TextView android:id="@+id/tvClientName" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textStyle="bold"
+                    android:textSize="14sp" android:textColor="?attr/colorOnSurface" />
+
+                <TextView android:id="@+id/tvDate" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="11sp"
+                    android:textColor="?attr/colorOnSurfaceVariant" />
+            </LinearLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp" app:cardElevation="0dp"
+                app:cardBackgroundColor="?attr/colorTertiaryContainer">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:paddingHorizontal="6dp" android:paddingVertical="2dp"
+                    android:gravity="center_vertical">
+                    <ImageView android:layout_width="12dp" android:layout_height="12dp"
+                        android:src="@drawable/ic_star" app:tint="?attr/colorOnTertiaryContainer" />
+                    <TextView android:id="@+id/ratingValue" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textSize="12sp"
+                        android:textStyle="bold" android:layout_marginStart="2dp"
+                        android:textColor="?attr/colorOnTertiaryContainer" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <RatingBar android:id="@+id/ratingBar" style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:numStars="5" android:isIndicator="true" android:stepSize="1"
+            android:progressTint="@color/colorStar" android:layout_marginTop="12dp"
+            android:visibility="gone" />
+
+        <TextView android:id="@+id/tvComment" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textSize="14sp"
+            android:lineHeight="20sp" android:textColor="?attr/colorOnSurface"
+            android:layout_marginTop="12dp" />
+
+        <View android:layout_width="40dp" android:layout_height="2dp"
+            android:background="?attr/colorPrimaryContainer" android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
