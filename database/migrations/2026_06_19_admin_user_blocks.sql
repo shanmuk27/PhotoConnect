@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS admin_user_blocks (
+    user_id INT UNSIGNED NOT NULL PRIMARY KEY,
+    reason VARCHAR(500) DEFAULT NULL,
+    blocked_by VARCHAR(80) DEFAULT 'dashboard',
+    blocked_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_admin_user_blocks_user FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

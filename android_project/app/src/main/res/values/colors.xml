@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ══════════════════════════════════════════════
+         PhotoConnect — Premium Photography App Palette
+         Primary: Deep Slate Blue (#1E293B)
+         Secondary: Warm Amber (#F59E0B)
+         Inspired by VSCO, Unsplash, Behance
+    ══════════════════════════════════════════════ -->
+
+    <!-- LIGHT THEME colors -->
+    <!-- Primary (camera green), secondary (action rose), tertiary (creative indigo) -->
+    <color name="md_theme_light_primary">#0F766E</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#CCFBF1</color>
+    <color name="md_theme_light_onPrimaryContainer">#042F2E</color>
+
+    <!-- Secondary -->
+    <color name="md_theme_light_secondary">#E11D48</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#FFE4E6</color>
+    <color name="md_theme_light_onSecondaryContainer">#881337</color>
+
+    <!-- Tertiary -->
+    <color name="md_theme_light_tertiary">#4F46E5</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_tertiaryContainer">#E0E7FF</color>
+    <color name="md_theme_light_onTertiaryContainer">#312E81</color>
+
+    <!-- Error -->
+    <color name="md_theme_light_error">#EF4444</color>
+    <color name="md_theme_light_onError">#FFFFFF</color>
+    <color name="md_theme_light_errorContainer">#FEE2E2</color>
+    <color name="md_theme_light_onErrorContainer">#7F1D1D</color>
+
+    <!-- Background / Surface (Clean, Warm White) -->
+    <color name="md_theme_light_background">#F7F9F7</color>
+    <color name="md_theme_light_onBackground">#101815</color>
+    <color name="md_theme_light_surface">#FFFFFF</color>
+    <color name="md_theme_light_onSurface">#101815</color>
+    <color name="md_theme_light_surfaceVariant">#EEF4F0</color>
+    <color name="md_theme_light_onSurfaceVariant">#52625B</color>
+    <color name="md_theme_light_surfaceTint">#0F766E</color>
+
+    <!-- Outline -->
+    <color name="md_theme_light_outline">#90A39B</color>
+    <color name="md_theme_light_outlineVariant">#DCE7E2</color>
+
+    <!-- Inverse -->
+    <color name="md_theme_light_inverseSurface">#18231F</color>
+    <color name="md_theme_light_inverseOnSurface">#EEF4F0</color>
+    <color name="md_theme_light_inversePrimary">#5EEAD4</color>
+
+
+    <!-- DARK THEME colors -->
+    <!-- Primary -->
+    <color name="md_theme_dark_primary">#5EEAD4</color>
+    <color name="md_theme_dark_onPrimary">#042F2E</color>
+    <color name="md_theme_dark_primaryContainer">#115E59</color>
+    <color name="md_theme_dark_onPrimaryContainer">#CCFBF1</color>
+
+    <!-- Secondary -->
+    <color name="md_theme_dark_secondary">#FDA4AF</color>
+    <color name="md_theme_dark_onSecondary">#881337</color>
+    <color name="md_theme_dark_secondaryContainer">#BE123C</color>
+    <color name="md_theme_dark_onSecondaryContainer">#FFE4E6</color>
+
+    <!-- Tertiary -->
+    <color name="md_theme_dark_tertiary">#A5B4FC</color>
+    <color name="md_theme_dark_onTertiary">#312E81</color>
+    <color name="md_theme_dark_tertiaryContainer">#4338CA</color>
+    <color name="md_theme_dark_onTertiaryContainer">#E0E7FF</color>
+
+    <!-- Error -->
+    <color name="md_theme_dark_error">#F87171</color>
+    <color name="md_theme_dark_onError">#450A0A</color>
+    <color name="md_theme_dark_errorContainer">#991B1B</color>
+    <color name="md_theme_dark_onErrorContainer">#FEE2E2</color>
+
+    <!-- Background / Surface -->
+    <color name="md_theme_dark_background">#0B1110</color>
+    <color name="md_theme_dark_onBackground">#E5EEE9</color>
+    <color name="md_theme_dark_surface">#121B18</color>
+    <color name="md_theme_dark_onSurface">#E5EEE9</color>
+    <color name="md_theme_dark_surfaceVariant">#20312C</color>
+    <color name="md_theme_dark_onSurfaceVariant">#A7B8B1</color>
+    <color name="md_theme_dark_surfaceTint">#5EEAD4</color>
+
+    <!-- Outline -->
+    <color name="md_theme_dark_outline">#7F938C</color>
+    <color name="md_theme_dark_outlineVariant">#2B3D37</color>
+
+    <!-- Inverse -->
+    <color name="md_theme_dark_inverseSurface">#E5EEE9</color>
+    <color name="md_theme_dark_inverseOnSurface">#101815</color>
+    <color name="md_theme_dark_inversePrimary">#0F766E</color>
+
+    <!-- ══════════════════════════════════════════════
+         Semantic aliases
+    ══════════════════════════════════════════════ -->
+    <color name="colorPrimary">@color/md_theme_light_primary</color>
+    <color name="colorPrimaryDark">#042F2E</color>
+    <color name="colorAccent">@color/md_theme_light_secondary</color>
+    <color name="colorBackground">@color/md_theme_light_background</color>
+    <color name="colorSurface">@color/md_theme_light_surface</color>
+    <color name="colorTextPrimary">@color/md_theme_light_onBackground</color>
+    <color name="colorTextSecondary">@color/md_theme_light_onSurfaceVariant</color>
+
+    <!-- Status colours (availability) -->
+    <color name="colorAvailable">#10B981</color>
+    <color name="colorBooked">#EF4444</color>
+    <color name="colorNotAvailable">#94A3B8</color>
+    <color name="colorPending">#F59E0B</color>
+
+    <!-- Star rating -->
+    <color name="colorStar">#FBBF24</color>
+    <color name="colorStarEmpty">#E2E8F0</color>
+
+    <!-- Gradient start/end -->
+    <color name="gradientStart">#0F766E</color>
+    <color name="gradientEnd">#4F46E5</color>
+</resources>

@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home_header">
+
+    <LinearLayout
+        android:id="@+id/layoutGuest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="32dp"
+        android:paddingHorizontal="32dp"
+        android:paddingBottom="96dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_calendar"
+            app:tint="?attr/colorPrimary"
+            android:alpha="0.2"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bookings_guest_title"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bookings_guest_body"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:layout_marginBottom="32dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSignInBookings"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/sign_in_now"
+            style="@style/Widget.PhotoConnect.Button.Primary" />
+    </LinearLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/contentGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarBookings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSurface"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbarBookings"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="@string/my_bookings"
+                app:subtitle="@string/bookings_toolbar_subtitle"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:titleCentered="true" />
+
+            <FrameLayout
+                android:id="@+id/cardEventsHero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_scrollFlags="scroll">
+
+                <LinearLayout
+                    android:id="@+id/layoutEventsHeroContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="16dp">
+
+                    <!-- Title and Count Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvHeading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:letterSpacing="-0.02"
+                                android:textColor="?attr/colorOnSurface" />
+
+                            <TextView
+                                android:id="@+id/tvSubheading"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:textSize="13sp"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+                        </LinearLayout>
+
+                        <!-- Summary count integrated on the right -->
+                        <LinearLayout
+                            android:id="@+id/layoutHeroSummary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:gravity="bottom|end"
+                            android:orientation="horizontal">
+                            
+                            <TextView
+                                android:id="@+id/tvSummaryCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="28sp"
+                                android:textStyle="bold"
+                                android:letterSpacing="-0.03"
+                                android:textColor="?attr/colorOnSurface" />
+
+                            <TextView
+                                android:id="@+id/tvSummaryLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="6dp"
+                                android:layout_marginBottom="4dp"
+                                android:text="@string/bookings_count_label"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textAllCaps="true"
+                                android:letterSpacing="0.08" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Month Filter Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMonthFilter"
+                            style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="38dp"
+                            android:paddingHorizontal="12dp"
+                            android:text="@string/events_all_time"
+                            app:icon="@drawable/ic_calendar"
+                            android:textColor="?attr/colorOnSurface"
+                            app:strokeColor="?attr/colorOutlineVariant"
+                            app:iconTint="?attr/colorOnSurfaceVariant" />
+                            
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:id="@+id/tvAvgIncome"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/events_avg_income_placeholder"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+
+                    <!-- Toggle Row -->
+                    <com.google.android.material.button.MaterialButtonToggleGroup
+                        android:id="@+id/toggleOrderScope"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:singleSelection="true"
+                        app:selectionRequired="true"
+                        android:background="@drawable/bg_event_scope_toggle"
+                        android:padding="4dp">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/tabPlacedOrders"
+                            style="@style/Widget.PhotoConnect.ToggleButton"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="36dp"
+                            android:text="@string/bookings_scope_placed"
+                            android:textColor="@color/selector_event_scope_text"
+                            app:backgroundTint="@color/selector_event_scope_bg" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/tabReceivedOrders"
+                            style="@style/Widget.PhotoConnect.ToggleButton"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="36dp"
+                            android:text="@string/bookings_scope_received"
+                            android:textColor="@color/selector_event_scope_text"
+                            app:backgroundTint="@color/selector_event_scope_bg" />
+                    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                    <!-- Budget boxes -->
+                    <LinearLayout
+                        android:id="@+id/layoutBudgetSummary"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvTotalBudget"
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_metric_card_primary"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:paddingHorizontal="4dp"
+                            android:textColor="?attr/colorOnSurface"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvPaidBudget"
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_metric_card"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:paddingHorizontal="4dp"
+                            android:textColor="?attr/colorOnSurface"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvBalanceBudget"
+                            android:layout_width="0dp"
+                            android:layout_height="60dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bg_metric_card_warning"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:paddingHorizontal="4dp"
+                            android:textColor="?attr/colorOnSurface"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Budget Analytics Progress -->
+                    <LinearLayout
+                        android:id="@+id/layoutBudgetAnalytics"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="vertical">
+                        
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/analytics_realized_income"
+                                android:textSize="11sp"
+                                android:textColor="?attr/colorOnSurfaceVariant" />
+                            <TextView
+                                android:id="@+id/tvPaidPercentage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0%"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:textColor="?attr/colorPrimary" />
+                        </LinearLayout>
+                        
+                        <ProgressBar
+                            android:id="@+id/progressPaidBudget"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="8dp"
+                            android:layout_marginTop="6dp"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressTint="?attr/colorPrimary"
+                            android:progressBackgroundTint="?attr/colorSurfaceVariant" />
+                            
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnAdvancedAnalytics"
+                            style="@style/Widget.Material3.Button.TextButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/events_view_advanced_analytics"
+                            app:icon="@drawable/ic_search"
+                            app:iconGravity="textStart" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilSearchEvents"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="8dp"
+                android:hint="@string/events_search_hint"
+                app:boxCornerRadiusBottomEnd="28dp"
+                app:boxCornerRadiusBottomStart="28dp"
+                app:boxCornerRadiusTopEnd="28dp"
+                app:boxCornerRadiusTopStart="28dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:boxBackgroundColor="?attr/colorSurfaceVariant"
+                app:startIconDrawable="@drawable/ic_search"
+                app:startIconTint="?attr/colorOnSurfaceVariant"
+                app:endIconMode="clear_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSearchEvents"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:singleLine="true"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="false"
+                android:overScrollMode="never"
+                android:paddingHorizontal="16dp"
+                android:scrollbars="none">
+
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/toggleEventFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/filterAllEvents"
+                        style="@style/Widget.PhotoConnect.ToggleButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="@string/events_all" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/filterUpcomingEvents"
+                        style="@style/Widget.PhotoConnect.ToggleButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="@string/events_upcoming" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/filterPendingEvents"
+                        style="@style/Widget.PhotoConnect.ToggleButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="@string/events_pending" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/filterCompletedEvents"
+                        style="@style/Widget.PhotoConnect.ToggleButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="@string/events_completed" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/filterCancelledEvents"
+                        style="@style/Widget.PhotoConnect.ToggleButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:text="@string/events_cancelled" />
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+            </HorizontalScrollView>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginHorizontal="16dp"
+                android:indeterminate="true"
+                android:visibility="gone" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout
+            android:id="@+id/eventsContentFrame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/swipeRefresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBookings"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="160dp"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutEmptyState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="40dp"
+                android:visibility="gone">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_calendar"
+                    android:alpha="0.1"
+                    app:tint="?attr/colorOnSurface" />
+                <TextView
+                    android:id="@+id/tvEmpty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bookings_empty"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"
+                    android:layout_marginTop="24dp"
+                    android:textAlignment="center" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/events_empty_filter"
+                    android:textSize="14sp"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_marginTop="8dp"
+                    android:textAlignment="center" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/btnAddEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="84dp"
+            android:text="@string/events_add"
+            app:icon="@android:drawable/ic_input_add"
+            app:backgroundTint="?attr/colorPrimary"
+            app:iconTint="?attr/colorOnPrimary"
+            android:textColor="?attr/colorOnPrimary" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

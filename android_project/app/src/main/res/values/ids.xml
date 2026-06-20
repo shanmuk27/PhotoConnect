@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tag_runtime_translation_text_key" type="id" />
+    <item name="tag_runtime_translation_hint_key" type="id" />
+    <item name="tag_runtime_translation_layout_hint_key" type="id" />
+</resources>

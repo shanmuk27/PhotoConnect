@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorSurfaceVariant">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:subtitle="@string/register_flow_subtitle"
+            app:subtitleCentered="true"
+            app:title="@string/register_flow_title"
+            app:titleCentered="true" />
+
+        <ProgressBar
+            android:id="@+id/stepProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:max="100"
+            android:progress="20"
+            android:progressBackgroundTint="?attr/colorSurfaceVariant"
+            android:progressTint="?attr/colorPrimary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="14dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="24dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorSurface"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorOutlineVariant"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/tvStepCounter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="14dp"
+                        android:background="@drawable/bg_register_step_pill"
+                        android:textAppearance="?attr/textAppearanceLabelMedium"
+                        android:textColor="?attr/colorOnPrimaryContainer"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvStepTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                        android:textColor="?attr/colorOnSurface" />
+
+                    <TextView
+                        android:id="@+id/tvStepDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="28dp"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textColor="?attr/colorOnSurfaceVariant" />
+
+                    <!-- Step 1 -->
+                    <LinearLayout
+                        android:id="@+id/stepRole"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.google.android.material.button.MaterialButtonToggleGroup
+                            android:id="@+id/toggleGroupRole"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="4dp"
+                            app:checkedButton="@id/tabRegClient"
+                            app:selectionRequired="true"
+                            app:singleSelection="true">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/tabRegClient"
+                                style="@style/Widget.PhotoConnect.RegisterRoleButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:ellipsize="none"
+                                android:maxLines="2"
+                                android:minHeight="64dp"
+                                android:singleLine="false"
+                                android:text="@string/register_role_client"
+                                app:icon="@drawable/ic_search"
+                                app:iconGravity="textStart"
+                                app:iconPadding="8dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/tabRegTaker"
+                                style="@style/Widget.PhotoConnect.RegisterRoleButton"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="none"
+                                android:maxLines="2"
+                                android:minHeight="64dp"
+                                android:singleLine="false"
+                                android:text="@string/register_role_creator"
+                                app:icon="@drawable/ic_camera"
+                                app:iconGravity="textStart"
+                                app:iconPadding="8dp" />
+                        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center"
+                            android:text="@string/register_role_footer"
+                            android:textAppearance="?attr/textAppearanceBodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+
+                    <!-- Step 2 -->
+                    <LinearLayout
+                        android:id="@+id/stepBasic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilFullName"
+                            style="@style/Widget.PhotoConnect.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:hint="@string/full_name"
+                            app:startIconDrawable="@drawable/ic_person">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etFullName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="textPersonName"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tilPhone"
+                                style="@style/Widget.PhotoConnect.TextInputLayout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="@string/phone_number"
+                                app:startIconDrawable="@drawable/ic_phone">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etPhone"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start|center_vertical"
+                                    android:includeFontPadding="false"
+                                    android:inputType="phone"
+                                    android:maxLength="10"
+                                    android:minHeight="@dimen/text_field_min_height"
+                                    android:paddingTop="@dimen/spacing_sm"
+                                    android:paddingBottom="@dimen/spacing_sm"
+                                    android:textAlignment="viewStart" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnVerifyPhone"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="70dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="8dp"
+                                android:contentDescription="@string/verify_phone"
+                                android:minWidth="0dp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:singleLine="true"
+                                android:text="@string/verify"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilPhoneOtp"
+                            style="@style/Widget.PhotoConnect.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:hint="@string/phone_otp_hint"
+                            android:visibility="gone"
+                            app:startIconDrawable="@drawable/ic_lock">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etPhoneOtp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="number"
+                                android:maxLength="6"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                    android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:id="@+id/tvPhoneOtpTimer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-6dp"
+                            android:layout_marginBottom="14dp"
+                            android:gravity="end"
+                            android:textAppearance="?attr/textAppearanceBodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tilEmail"
+                                style="@style/Widget.PhotoConnect.TextInputLayout"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="@string/email_address"
+                                app:startIconDrawable="@drawable/ic_email">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/etEmail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start|center_vertical"
+                                    android:includeFontPadding="false"
+                                    android:inputType="textEmailAddress"
+                                    android:minHeight="@dimen/text_field_min_height"
+                                    android:paddingTop="@dimen/spacing_sm"
+                                    android:paddingBottom="@dimen/spacing_sm"
+                                    android:textAlignment="viewStart" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnVerifyEmail"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="70dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="8dp"
+                                android:contentDescription="@string/verify_email"
+                                android:minWidth="0dp"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:singleLine="true"
+                                android:text="@string/verify"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilEmailOtp"
+                            style="@style/Widget.PhotoConnect.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:hint="@string/email_otp_hint"
+                            android:visibility="gone"
+                            app:startIconDrawable="@drawable/ic_lock">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etEmailOtp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="number"
+                                android:maxLength="6"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                    android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:id="@+id/tvEmailOtpTimer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-6dp"
+                            android:layout_marginBottom="14dp"
+                            android:gravity="end"
+                            android:textAppearance="?attr/textAppearanceBodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <!-- Step 3 -->
+                    <LinearLayout
+                        android:id="@+id/stepSecurity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilPassword"
+                            style="@style/Widget.PhotoConnect.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:hint="@string/password"
+                            app:endIconMode="password_toggle"
+                            app:startIconDrawable="@drawable/ic_lock">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="textPassword"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilConfirmPassword"
+                            style="@style/Widget.PhotoConnect.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:hint="@string/confirm_password"
+                            app:endIconMode="password_toggle"
+                            app:startIconDrawable="@drawable/ic_lock">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etConfirmPassword"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="textPassword"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/register_security_footer"
+                            android:textAppearance="?attr/textAppearanceBodySmall"
+                            android:textColor="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+
+                    <!-- Step 4 -->
+                    <LinearLayout
+                        android:id="@+id/stepLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilPincode"
+                            style="@style/Widget.PhotoConnect.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:hint="@string/register_pincode_required"
+                            app:startIconDrawable="@drawable/ic_location">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etPincode"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="number"
+                                android:maxLength="6"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilArea"
+                            style="@style/Widget.PhotoConnect.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:visibility="gone"
+                            android:hint="@string/register_area_required">
+
+                            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                                android:id="@+id/etArea"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="textCapWords"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilCity"
+                            style="@style/Widget.PhotoConnect.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:hint="@string/register_city_required"
+                            app:startIconDrawable="@drawable/ic_location">
+
+                            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                                android:id="@+id/etCity"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="textCapWords"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <ProgressBar
+                            android:id="@+id/progressLocationLookup"
+                            style="?android:attr/progressBarStyleSmall"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="end"
+                            android:layout_marginTop="-8dp"
+                            android:layout_marginBottom="8dp"
+                            android:visibility="gone" />
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/chipGroupLocationSuggestions"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:visibility="gone"
+                            app:chipSpacingHorizontal="8dp"
+                            app:chipSpacingVertical="8dp" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilState"
+                            style="@style/Widget.PhotoConnect.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/register_state_required"
+                            app:startIconDrawable="@drawable/ic_location">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etState"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="textCapWords"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <!-- Step 5 -->
+                    <LinearLayout
+                        android:id="@+id/stepService"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilServiceType"
+                            style="@style/Widget.PhotoConnect.TextInputLayout.Dropdown"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:hint="@string/register_service_types_hint"
+                            app:startIconDrawable="@drawable/ic_camera">
+
+                            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                                android:id="@+id/actvServiceType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="none"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.PhotoConnect.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:hint="@string/register_years_exp_hint">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etYearsExp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="number"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.PhotoConnect.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:hint="@string/register_languages_hint">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etLanguagesReg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="textCapWords"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.PhotoConnect.TextInputLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:hint="@string/portfolio_url"
+                            app:startIconDrawable="@drawable/ic_location">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etPortfolioUrl"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="start|center_vertical"
+                                android:includeFontPadding="false"
+                                android:inputType="textUri"
+                                android:minHeight="@dimen/text_field_min_height"
+                                android:paddingTop="@dimen/spacing_sm"
+                                android:paddingBottom="@dimen/spacing_sm"
+                                android:textAlignment="viewStart" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutExtraLinks"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnAddLink"
+                            style="@style/Widget.Material3.Button.TextButton.Icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="14dp"
+                            android:text="@string/add_another_link"
+                            app:icon="@android:drawable/ic_input_add"
+                            app:iconGravity="start" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnBack"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/previous"
+                    android:visibility="invisible"
+                    app:cornerRadius="18dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnNext"
+                    style="@style/Widget.PhotoConnect.Button.Primary"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="2"
+                    android:text="@string/next" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/tvSignIn"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/already_have_account"
+                android:textColor="?attr/colorOnSurfaceVariant" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,48 @@
+# Local secrets and environment configuration
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+**/google-services.json
+**/client_secret*.json
+**/*service-account*.json
+**/*firebase-admin*.json
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.key
+
+# Machine-local Android and IDE files
+**/local.properties
+**/.gradle/
+**/.kotlin/
+**/.idea/
+**/*.iml
+**/build/
+**/.externalNativeBuild/
+**/.cxx/
+**/captures/
+*.apk
+*.aab
+
+# Runtime data and diagnostics
+*.log
+api_timing.log
+**/uploads/
+**/cache/
+**/tmp/
+**/temp/
+php_api/cacert.pem
+
+# Local Codex and nested-repository metadata
+.agents/
+android_project/.git.android-backup/
+android_project/readfiles.py
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini

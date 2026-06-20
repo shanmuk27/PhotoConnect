@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:background="?attr/colorSurface" app:elevation="4dp">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+            app:title="@string/creator_dashboard_title" app:titleCentered="true" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="20dp">
+
+            <TextView android:id="@+id/tvWelcome" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="32sp" android:textStyle="bold"
+                android:letterSpacing="-0.03"
+                android:textColor="?attr/colorOnSurface" android:layout_marginBottom="24dp" />
+
+            <!-- Reminder Banner -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardReminder"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp" app:cardCornerRadius="16dp"
+                app:cardElevation="0dp" app:strokeWidth="1dp" app:strokeColor="?attr/colorTertiary"
+                app:cardBackgroundColor="?attr/colorTertiaryContainer" android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:padding="16dp" android:gravity="center_vertical">
+                    <ImageView android:layout_width="28dp" android:layout_height="28dp"
+                        android:src="@drawable/ic_calendar" app:tint="?attr/colorTertiary" />
+                    <TextView
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginStart="12dp"
+                        android:text="@string/dashboard_reminder"
+                        android:textSize="14sp" android:textColor="?attr/colorOnTertiaryContainer"
+                        android:lineHeight="20sp" />
+                    <ImageButton
+                        android:id="@+id/btnCloseReminder"
+                        android:layout_width="36dp" android:layout_height="36dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        app:tint="?attr/colorTertiary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Calendar Card -->
+            <FrameLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="12dp">
+
+                    <RelativeLayout android:layout_width="match_parent" android:layout_height="48dp"
+                        android:layout_marginBottom="8dp">
+                        <ImageButton android:id="@+id/btnPrevMonth" android:layout_width="40dp" android:layout_height="40dp"
+                            android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_arrow_back"
+                            android:contentDescription="@string/previous_month"
+                            android:layout_alignParentStart="true" android:layout_centerVertical="true"
+                            app:tint="?attr/colorPrimary" />
+
+                        <TextView android:id="@+id/tvCurrentMonth" android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:layout_centerInParent="true"
+                            android:textSize="16sp" android:textStyle="bold" android:textColor="?attr/colorOnSurface" />
+
+                        <ImageButton android:id="@+id/btnNextMonth" android:layout_width="40dp" android:layout_height="40dp"
+                            android:background="?attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_arrow_forward"
+                            android:contentDescription="@string/next_month"
+                            android:layout_alignParentEnd="true" android:layout_centerVertical="true"
+                            app:tint="?attr/colorPrimary" />
+                    </RelativeLayout>
+
+                    <com.photoconnect.ui.views.AvailabilityCalendarView android:id="@+id/calendarView"
+                        android:layout_width="match_parent" android:layout_height="320dp" />
+
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:gravity="center" android:layout_marginTop="12dp"
+                        android:paddingBottom="8dp">
+                        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@color/colorAvailable" android:layout_gravity="center_vertical" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/available" android:textSize="11sp" android:layout_marginStart="4dp" android:layout_marginEnd="16dp" />
+                        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@color/colorBooked" android:layout_gravity="center_vertical" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/booked" android:textSize="11sp" android:layout_marginStart="4dp" android:layout_marginEnd="16dp" />
+                        <View android:layout_width="8dp" android:layout_height="8dp" android:background="@color/colorNotAvailable" android:layout_gravity="center_vertical" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/busy" android:textSize="11sp" android:layout_marginStart="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardBookedDateDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorOutlineVariant"
+                app:strokeWidth="1dp"
+                app:cardBackgroundColor="?attr/colorSurface">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="18dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvBookedDateTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/booked_date_details_title"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="17sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvBookedDateSubtitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <ImageButton
+                            android:id="@+id/btnCloseBookedDateDetails"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/close"
+                            android:src="@android:drawable/ic_menu_close_clear_cancel"
+                            app:tint="?attr/colorOnSurfaceVariant" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvBookedDateDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:background="?attr/colorSurfaceVariant"
+                        android:lineSpacingExtra="3dp"
+                        android:padding="14dp"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Quick Actions -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="@string/bulk_selection_actions" android:textSize="14sp" android:textStyle="bold"
+                android:textColor="?attr/colorOnSurfaceVariant" android:layout_marginTop="32dp" android:layout_marginBottom="16dp" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnMarkAvailable"
+                    android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1"
+                    android:layout_marginEnd="8dp" android:text="@string/mark_available"
+                    app:backgroundTint="@color/colorAvailable" app:cornerRadius="24dp" android:textSize="14sp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnMarkUnavailable"
+                    android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1"
+                    android:text="@string/mark_busy" app:backgroundTint="@color/colorNotAvailable" app:cornerRadius="24dp" android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" android:baselineAligned="false" android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnMonthAvailable"
+                    style="@style/Widget.PhotoConnect.Button.Outlined"
+                    android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1"
+                    android:layout_marginEnd="8dp" android:text="@string/make_month_available"
+                    android:gravity="center" android:insetTop="0dp" android:insetBottom="0dp"
+                    android:maxLines="2" android:textAlignment="center" android:textSize="13sp"
+                    app:icon="@drawable/ic_calendar" app:iconGravity="textStart" app:iconPadding="8dp" />
+                <com.google.android.material.button.MaterialButton android:id="@+id/btnMonthBusy"
+                    style="@style/Widget.PhotoConnect.Button.Outlined"
+                    android:layout_width="0dp" android:layout_height="64dp" android:layout_weight="1"
+                    android:text="@string/make_month_busy"
+                    android:gravity="center" android:insetTop="0dp" android:insetBottom="0dp"
+                    android:maxLines="2" android:textAlignment="center" android:textSize="13sp"
+                    app:icon="@drawable/ic_calendar" app:iconGravity="textStart" app:iconPadding="8dp" />
+            </LinearLayout>
+
+            <ProgressBar android:id="@+id/progressBar" android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:layout_gravity="center"
+                android:layout_marginTop="24dp" android:visibility="gone" />
+
+            <View android:layout_width="match_parent" android:layout_height="100dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

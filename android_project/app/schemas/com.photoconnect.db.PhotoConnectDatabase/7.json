@@ -1,0 +1,497 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 7,
+    "identityHash": "df5cb3ae025460a8985afdadcf79ba96",
+    "entities": [
+      {
+        "tableName": "takers",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `fullName` TEXT NOT NULL, `phone` TEXT NOT NULL, `email` TEXT NOT NULL, `pincode` TEXT NOT NULL, `area` TEXT NOT NULL, `city` TEXT NOT NULL, `state` TEXT NOT NULL, `serviceTypes` TEXT NOT NULL, `yearsExperience` INTEGER NOT NULL, `languages` TEXT, `instagramUrl` TEXT, `youtubeUrl` TEXT, `portfolioUrl` TEXT, `profileImageUrl` TEXT, `profileThumbUrl` TEXT, `profileImageScope` TEXT NOT NULL, `avgRating` REAL NOT NULL, `reviewCount` INTEGER NOT NULL, `isFeatured` INTEGER NOT NULL, `cachedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fullName",
+            "columnName": "fullName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phone",
+            "columnName": "phone",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pincode",
+            "columnName": "pincode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "area",
+            "columnName": "area",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "city",
+            "columnName": "city",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceTypes",
+            "columnName": "serviceTypes",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "yearsExperience",
+            "columnName": "yearsExperience",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "languages",
+            "columnName": "languages",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "instagramUrl",
+            "columnName": "instagramUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "youtubeUrl",
+            "columnName": "youtubeUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "portfolioUrl",
+            "columnName": "portfolioUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "profileImageUrl",
+            "columnName": "profileImageUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "profileThumbUrl",
+            "columnName": "profileThumbUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "profileImageScope",
+            "columnName": "profileImageScope",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "avgRating",
+            "columnName": "avgRating",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reviewCount",
+            "columnName": "reviewCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isFeatured",
+            "columnName": "isFeatured",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cachedAt",
+            "columnName": "cachedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_takers_city",
+            "unique": false,
+            "columnNames": [
+              "city"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_takers_city` ON `${TABLE_NAME}` (`city`)"
+          },
+          {
+            "name": "index_takers_area",
+            "unique": false,
+            "columnNames": [
+              "area"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_takers_area` ON `${TABLE_NAME}` (`area`)"
+          },
+          {
+            "name": "index_takers_pincode",
+            "unique": false,
+            "columnNames": [
+              "pincode"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_takers_pincode` ON `${TABLE_NAME}` (`pincode`)"
+          },
+          {
+            "name": "index_takers_serviceTypes",
+            "unique": false,
+            "columnNames": [
+              "serviceTypes"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_takers_serviceTypes` ON `${TABLE_NAME}` (`serviceTypes`)"
+          },
+          {
+            "name": "index_takers_serviceTypes_city",
+            "unique": false,
+            "columnNames": [
+              "serviceTypes",
+              "city"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_takers_serviceTypes_city` ON `${TABLE_NAME}` (`serviceTypes`, `city`)"
+          }
+        ]
+      },
+      {
+        "tableName": "availability",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`takerId` INTEGER NOT NULL, `date` TEXT NOT NULL, `status` TEXT NOT NULL, PRIMARY KEY(`takerId`, `date`))",
+        "fields": [
+          {
+            "fieldPath": "takerId",
+            "columnName": "takerId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "takerId",
+            "date"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_availability_date",
+            "unique": false,
+            "columnNames": [
+              "date"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_availability_date` ON `${TABLE_NAME}` (`date`)"
+          },
+          {
+            "name": "index_availability_status",
+            "unique": false,
+            "columnNames": [
+              "status"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_availability_status` ON `${TABLE_NAME}` (`status`)"
+          },
+          {
+            "name": "index_availability_takerId_status",
+            "unique": false,
+            "columnNames": [
+              "takerId",
+              "status"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_availability_takerId_status` ON `${TABLE_NAME}` (`takerId`, `status`)"
+          }
+        ]
+      },
+      {
+        "tableName": "bookings",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `clientId` INTEGER NOT NULL, `takerId` INTEGER NOT NULL, `takerName` TEXT, `clientName` TEXT, `bookingDate` TEXT NOT NULL, `serviceType` TEXT NOT NULL, `eventLocation` TEXT, `notes` TEXT, `status` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientId",
+            "columnName": "clientId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "takerId",
+            "columnName": "takerId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "takerName",
+            "columnName": "takerName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "clientName",
+            "columnName": "clientName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "bookingDate",
+            "columnName": "bookingDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceType",
+            "columnName": "serviceType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eventLocation",
+            "columnName": "eventLocation",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_bookings_clientId",
+            "unique": false,
+            "columnNames": [
+              "clientId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bookings_clientId` ON `${TABLE_NAME}` (`clientId`)"
+          },
+          {
+            "name": "index_bookings_takerId",
+            "unique": false,
+            "columnNames": [
+              "takerId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bookings_takerId` ON `${TABLE_NAME}` (`takerId`)"
+          },
+          {
+            "name": "index_bookings_bookingDate",
+            "unique": false,
+            "columnNames": [
+              "bookingDate"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bookings_bookingDate` ON `${TABLE_NAME}` (`bookingDate`)"
+          },
+          {
+            "name": "index_bookings_clientId_status_bookingDate",
+            "unique": false,
+            "columnNames": [
+              "clientId",
+              "status",
+              "bookingDate"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bookings_clientId_status_bookingDate` ON `${TABLE_NAME}` (`clientId`, `status`, `bookingDate`)"
+          },
+          {
+            "name": "index_bookings_takerId_status_bookingDate",
+            "unique": false,
+            "columnNames": [
+              "takerId",
+              "status",
+              "bookingDate"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bookings_takerId_status_bookingDate` ON `${TABLE_NAME}` (`takerId`, `status`, `bookingDate`)"
+          }
+        ]
+      },
+      {
+        "tableName": "reviews",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `takerId` INTEGER NOT NULL, `clientId` INTEGER NOT NULL, `clientName` TEXT NOT NULL, `rating` INTEGER NOT NULL, `comment` TEXT, `createdAt` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "takerId",
+            "columnName": "takerId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientId",
+            "columnName": "clientId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientName",
+            "columnName": "clientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rating",
+            "columnName": "rating",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "comment",
+            "columnName": "comment",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_reviews_takerId",
+            "unique": false,
+            "columnNames": [
+              "takerId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_reviews_takerId` ON `${TABLE_NAME}` (`takerId`)"
+          },
+          {
+            "name": "index_reviews_clientId",
+            "unique": false,
+            "columnNames": [
+              "clientId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_reviews_clientId` ON `${TABLE_NAME}` (`clientId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "favorites",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `takerId` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`userId`, `takerId`))",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "takerId",
+            "columnName": "takerId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "userId",
+            "takerId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_favorites_userId",
+            "unique": false,
+            "columnNames": [
+              "userId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_favorites_userId` ON `${TABLE_NAME}` (`userId`)"
+          },
+          {
+            "name": "index_favorites_takerId",
+            "unique": false,
+            "columnNames": [
+              "takerId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_favorites_takerId` ON `${TABLE_NAME}` (`takerId`)"
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'df5cb3ae025460a8985afdadcf79ba96')"
+    ]
+  }
+}

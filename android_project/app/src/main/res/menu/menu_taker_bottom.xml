@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/homeFragment"            android:icon="@drawable/ic_search"             android:title="@string/nav_explore" />
+    <item android:id="@+id/takerDashboardFragment"  android:icon="@drawable/ic_calendar"           android:title="@string/nav_calendar" />
+    <item android:id="@+id/bookingsFragment"        android:icon="@drawable/ic_camera"             android:title="@string/nav_orders" />
+    <item android:id="@+id/takerProfileFragment"    android:icon="@drawable/ic_person_placeholder" android:title="@string/account_title" />
+</menu>

@@ -1,0 +1,907 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 12,
+    "identityHash": "ad7b4f61ff695f0bc6543c3b231d995a",
+    "entities": [
+      {
+        "tableName": "takers",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `fullName` TEXT NOT NULL, `phone` TEXT NOT NULL, `email` TEXT NOT NULL, `pincode` TEXT NOT NULL, `area` TEXT NOT NULL, `city` TEXT NOT NULL, `state` TEXT NOT NULL, `serviceTypes` TEXT NOT NULL, `yearsExperience` INTEGER NOT NULL, `languages` TEXT, `instagramUrl` TEXT, `youtubeUrl` TEXT, `portfolioUrl` TEXT, `profileImageUrl` TEXT, `profileThumbUrl` TEXT, `profileImageScope` TEXT NOT NULL, `avgRating` REAL NOT NULL, `reviewCount` INTEGER NOT NULL, `isFeatured` INTEGER NOT NULL, `favoriteCount` INTEGER NOT NULL, `viewerHasFavorited` INTEGER NOT NULL, `postCount` INTEGER NOT NULL, `activePostCount` INTEGER NOT NULL, `postReach` INTEGER NOT NULL, `rankingScore` REAL NOT NULL, `isTopTaker` INTEGER NOT NULL, `trustStage` TEXT NOT NULL, `trustLabel` TEXT NOT NULL, `identityVerified` INTEGER NOT NULL, `portfolioVerified` INTEGER NOT NULL, `socialVerified` INTEGER NOT NULL, `completedBookingCount` INTEGER NOT NULL, `endorsementCount` INTEGER NOT NULL, `proximityLabel` TEXT, `distanceKm` REAL, `searchDistanceKm` REAL, `deviceDistanceKm` REAL, `isAvailable` INTEGER, `availabilityStatus` TEXT, `cachedAt` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fullName",
+            "columnName": "fullName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "phone",
+            "columnName": "phone",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pincode",
+            "columnName": "pincode",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "area",
+            "columnName": "area",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "city",
+            "columnName": "city",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceTypes",
+            "columnName": "serviceTypes",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "yearsExperience",
+            "columnName": "yearsExperience",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "languages",
+            "columnName": "languages",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "instagramUrl",
+            "columnName": "instagramUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "youtubeUrl",
+            "columnName": "youtubeUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "portfolioUrl",
+            "columnName": "portfolioUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "profileImageUrl",
+            "columnName": "profileImageUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "profileThumbUrl",
+            "columnName": "profileThumbUrl",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "profileImageScope",
+            "columnName": "profileImageScope",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "avgRating",
+            "columnName": "avgRating",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "reviewCount",
+            "columnName": "reviewCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isFeatured",
+            "columnName": "isFeatured",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "favoriteCount",
+            "columnName": "favoriteCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "viewerHasFavorited",
+            "columnName": "viewerHasFavorited",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "postCount",
+            "columnName": "postCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "activePostCount",
+            "columnName": "activePostCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "postReach",
+            "columnName": "postReach",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rankingScore",
+            "columnName": "rankingScore",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isTopTaker",
+            "columnName": "isTopTaker",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "trustStage",
+            "columnName": "trustStage",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "trustLabel",
+            "columnName": "trustLabel",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "identityVerified",
+            "columnName": "identityVerified",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "portfolioVerified",
+            "columnName": "portfolioVerified",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "socialVerified",
+            "columnName": "socialVerified",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "completedBookingCount",
+            "columnName": "completedBookingCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "endorsementCount",
+            "columnName": "endorsementCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "proximityLabel",
+            "columnName": "proximityLabel",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "distanceKm",
+            "columnName": "distanceKm",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "searchDistanceKm",
+            "columnName": "searchDistanceKm",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "deviceDistanceKm",
+            "columnName": "deviceDistanceKm",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "isAvailable",
+            "columnName": "isAvailable",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "availabilityStatus",
+            "columnName": "availabilityStatus",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "cachedAt",
+            "columnName": "cachedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_takers_city",
+            "unique": false,
+            "columnNames": [
+              "city"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_takers_city` ON `${TABLE_NAME}` (`city`)"
+          },
+          {
+            "name": "index_takers_area",
+            "unique": false,
+            "columnNames": [
+              "area"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_takers_area` ON `${TABLE_NAME}` (`area`)"
+          },
+          {
+            "name": "index_takers_pincode",
+            "unique": false,
+            "columnNames": [
+              "pincode"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_takers_pincode` ON `${TABLE_NAME}` (`pincode`)"
+          },
+          {
+            "name": "index_takers_serviceTypes",
+            "unique": false,
+            "columnNames": [
+              "serviceTypes"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_takers_serviceTypes` ON `${TABLE_NAME}` (`serviceTypes`)"
+          },
+          {
+            "name": "index_takers_serviceTypes_city",
+            "unique": false,
+            "columnNames": [
+              "serviceTypes",
+              "city"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_takers_serviceTypes_city` ON `${TABLE_NAME}` (`serviceTypes`, `city`)"
+          }
+        ]
+      },
+      {
+        "tableName": "availability",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`takerId` INTEGER NOT NULL, `date` TEXT NOT NULL, `status` TEXT NOT NULL, `dayPart` TEXT NOT NULL, PRIMARY KEY(`takerId`, `date`, `dayPart`))",
+        "fields": [
+          {
+            "fieldPath": "takerId",
+            "columnName": "takerId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dayPart",
+            "columnName": "dayPart",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "takerId",
+            "date",
+            "dayPart"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_availability_date",
+            "unique": false,
+            "columnNames": [
+              "date"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_availability_date` ON `${TABLE_NAME}` (`date`)"
+          },
+          {
+            "name": "index_availability_status",
+            "unique": false,
+            "columnNames": [
+              "status"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_availability_status` ON `${TABLE_NAME}` (`status`)"
+          },
+          {
+            "name": "index_availability_takerId_status",
+            "unique": false,
+            "columnNames": [
+              "takerId",
+              "status"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_availability_takerId_status` ON `${TABLE_NAME}` (`takerId`, `status`)"
+          }
+        ]
+      },
+      {
+        "tableName": "bookings",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `clientId` INTEGER NOT NULL, `takerId` INTEGER NOT NULL, `takerName` TEXT, `clientName` TEXT, `bookingDate` TEXT NOT NULL, `serviceType` TEXT NOT NULL, `dayPart` TEXT NOT NULL, `eventLocation` TEXT, `notes` TEXT, `status` TEXT NOT NULL, `clientVerificationStage` TEXT NOT NULL, `clientVerificationLabel` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientId",
+            "columnName": "clientId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "takerId",
+            "columnName": "takerId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "takerName",
+            "columnName": "takerName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "clientName",
+            "columnName": "clientName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "bookingDate",
+            "columnName": "bookingDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceType",
+            "columnName": "serviceType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dayPart",
+            "columnName": "dayPart",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eventLocation",
+            "columnName": "eventLocation",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientVerificationStage",
+            "columnName": "clientVerificationStage",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientVerificationLabel",
+            "columnName": "clientVerificationLabel",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_bookings_clientId",
+            "unique": false,
+            "columnNames": [
+              "clientId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bookings_clientId` ON `${TABLE_NAME}` (`clientId`)"
+          },
+          {
+            "name": "index_bookings_takerId",
+            "unique": false,
+            "columnNames": [
+              "takerId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bookings_takerId` ON `${TABLE_NAME}` (`takerId`)"
+          },
+          {
+            "name": "index_bookings_bookingDate",
+            "unique": false,
+            "columnNames": [
+              "bookingDate"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bookings_bookingDate` ON `${TABLE_NAME}` (`bookingDate`)"
+          },
+          {
+            "name": "index_bookings_dayPart",
+            "unique": false,
+            "columnNames": [
+              "dayPart"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bookings_dayPart` ON `${TABLE_NAME}` (`dayPart`)"
+          },
+          {
+            "name": "index_bookings_clientId_status_bookingDate",
+            "unique": false,
+            "columnNames": [
+              "clientId",
+              "status",
+              "bookingDate"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bookings_clientId_status_bookingDate` ON `${TABLE_NAME}` (`clientId`, `status`, `bookingDate`)"
+          },
+          {
+            "name": "index_bookings_takerId_status_bookingDate",
+            "unique": false,
+            "columnNames": [
+              "takerId",
+              "status",
+              "bookingDate"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bookings_takerId_status_bookingDate` ON `${TABLE_NAME}` (`takerId`, `status`, `bookingDate`)"
+          }
+        ]
+      },
+      {
+        "tableName": "events",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `bookingId` INTEGER, `createdByRole` TEXT NOT NULL, `createdById` INTEGER NOT NULL, `clientId` INTEGER, `takerId` INTEGER, `title` TEXT NOT NULL, `eventDate` TEXT NOT NULL, `dayPart` TEXT NOT NULL, `serviceType` TEXT, `location` TEXT, `clientName` TEXT, `clientPhone` TEXT, `takerName` TEXT, `totalAmount` REAL NOT NULL, `paidAmount` REAL NOT NULL, `balanceAmount` REAL NOT NULL, `notes` TEXT, `status` TEXT NOT NULL, `createdAt` TEXT, `updatedAt` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bookingId",
+            "columnName": "bookingId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "createdByRole",
+            "columnName": "createdByRole",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdById",
+            "columnName": "createdById",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientId",
+            "columnName": "clientId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "takerId",
+            "columnName": "takerId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eventDate",
+            "columnName": "eventDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dayPart",
+            "columnName": "dayPart",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serviceType",
+            "columnName": "serviceType",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "location",
+            "columnName": "location",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "clientName",
+            "columnName": "clientName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "clientPhone",
+            "columnName": "clientPhone",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "takerName",
+            "columnName": "takerName",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "totalAmount",
+            "columnName": "totalAmount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paidAmount",
+            "columnName": "paidAmount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "balanceAmount",
+            "columnName": "balanceAmount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "updatedAt",
+            "columnName": "updatedAt",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_events_bookingId",
+            "unique": false,
+            "columnNames": [
+              "bookingId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_events_bookingId` ON `${TABLE_NAME}` (`bookingId`)"
+          },
+          {
+            "name": "index_events_createdByRole",
+            "unique": false,
+            "columnNames": [
+              "createdByRole"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_events_createdByRole` ON `${TABLE_NAME}` (`createdByRole`)"
+          },
+          {
+            "name": "index_events_createdById",
+            "unique": false,
+            "columnNames": [
+              "createdById"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_events_createdById` ON `${TABLE_NAME}` (`createdById`)"
+          },
+          {
+            "name": "index_events_clientId",
+            "unique": false,
+            "columnNames": [
+              "clientId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_events_clientId` ON `${TABLE_NAME}` (`clientId`)"
+          },
+          {
+            "name": "index_events_takerId",
+            "unique": false,
+            "columnNames": [
+              "takerId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_events_takerId` ON `${TABLE_NAME}` (`takerId`)"
+          },
+          {
+            "name": "index_events_eventDate",
+            "unique": false,
+            "columnNames": [
+              "eventDate"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_events_eventDate` ON `${TABLE_NAME}` (`eventDate`)"
+          },
+          {
+            "name": "index_events_dayPart",
+            "unique": false,
+            "columnNames": [
+              "dayPart"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_events_dayPart` ON `${TABLE_NAME}` (`dayPart`)"
+          },
+          {
+            "name": "index_events_status",
+            "unique": false,
+            "columnNames": [
+              "status"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_events_status` ON `${TABLE_NAME}` (`status`)"
+          },
+          {
+            "name": "index_events_createdByRole_createdById_eventDate",
+            "unique": false,
+            "columnNames": [
+              "createdByRole",
+              "createdById",
+              "eventDate"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_events_createdByRole_createdById_eventDate` ON `${TABLE_NAME}` (`createdByRole`, `createdById`, `eventDate`)"
+          },
+          {
+            "name": "index_events_clientId_eventDate",
+            "unique": false,
+            "columnNames": [
+              "clientId",
+              "eventDate"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_events_clientId_eventDate` ON `${TABLE_NAME}` (`clientId`, `eventDate`)"
+          },
+          {
+            "name": "index_events_takerId_eventDate",
+            "unique": false,
+            "columnNames": [
+              "takerId",
+              "eventDate"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_events_takerId_eventDate` ON `${TABLE_NAME}` (`takerId`, `eventDate`)"
+          }
+        ]
+      },
+      {
+        "tableName": "reviews",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `takerId` INTEGER NOT NULL, `clientId` INTEGER NOT NULL, `clientName` TEXT NOT NULL, `rating` INTEGER NOT NULL, `comment` TEXT, `createdAt` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "takerId",
+            "columnName": "takerId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientId",
+            "columnName": "clientId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "clientName",
+            "columnName": "clientName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rating",
+            "columnName": "rating",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "comment",
+            "columnName": "comment",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_reviews_takerId",
+            "unique": false,
+            "columnNames": [
+              "takerId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_reviews_takerId` ON `${TABLE_NAME}` (`takerId`)"
+          },
+          {
+            "name": "index_reviews_clientId",
+            "unique": false,
+            "columnNames": [
+              "clientId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_reviews_clientId` ON `${TABLE_NAME}` (`clientId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "favorites",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` INTEGER NOT NULL, `takerId` INTEGER NOT NULL, `createdAt` INTEGER NOT NULL, PRIMARY KEY(`userId`, `takerId`))",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "takerId",
+            "columnName": "takerId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "userId",
+            "takerId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_favorites_userId",
+            "unique": false,
+            "columnNames": [
+              "userId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_favorites_userId` ON `${TABLE_NAME}` (`userId`)"
+          },
+          {
+            "name": "index_favorites_takerId",
+            "unique": false,
+            "columnNames": [
+              "takerId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_favorites_takerId` ON `${TABLE_NAME}` (`takerId`)"
+          }
+        ]
+      },
+      {
+        "tableName": "help_tickets",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `message` TEXT NOT NULL, `timestamp` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "message",
+            "columnName": "message",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ad7b4f61ff695f0bc6543c3b231d995a')"
+    ]
+  }
+}
