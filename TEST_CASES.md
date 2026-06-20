@@ -105,6 +105,6 @@ Run these after deploying the PHP API and installing a fresh Android debug build
    - Log in as a user with a taker profile and perform profile, post, availability, booking, event, and notification actions.
    - Expected: APIs use `takers.id` or `clients.id` where profile ids are required, not `users.id`.
 
-3. Existing-user social/profile update
+3. Existing-user social/profile update:
    - Update a taker profile email and links from account settings.
    - Expected: email uniqueness is checked in `users`, `users.email` is updated, and linked profile data remains consistent.
