@@ -1,0 +1,12 @@
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keep class com.squareup.moshi.** { *; }
+-keepclassmembers class * { @com.squareup.moshi.FromJson *; @com.squareup.moshi.ToJson *; }
+-keep class * extends androidx.room.RoomDatabase
+-keep @androidx.room.Entity class *
+-keep class dagger.hilt.** { *; }
+-keep class com.photoconnect.model.** { *; }
+-keep class com.photoconnect.network.** { *; }
+-keep class com.photoconnect.db.** { *; }
+-keep public class * implements com.bumptech.glide.module.GlideModule

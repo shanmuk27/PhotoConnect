@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Local secrets and environment configuration
 .env
 .env.*
@@ -46,3 +47,14 @@ android_project/readfiles.py
 .DS_Store
 Thumbs.db
 Desktop.ini
+=======
+﻿.gradle/
+.idea/
+build/
+app/build/
+local.properties
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+>>>>>>> 760261688d77900f671c06c2511b36c5994097b0

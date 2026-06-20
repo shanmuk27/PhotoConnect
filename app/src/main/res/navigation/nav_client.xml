@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_client" app:startDestination="@id/homeFragment">
+    <fragment android:id="@+id/homeFragment" android:name="com.photoconnect.ui.fragments.HomeFragment" android:label="Home" />
+    <fragment android:id="@+id/bookingsFragment" android:name="com.photoconnect.ui.fragments.BookingsFragment" android:label="Bookings" />
+    <fragment android:id="@+id/profileFragment" android:name="com.photoconnect.ui.fragments.ProfileFragment" android:label="Profile" />
+</navigation>
