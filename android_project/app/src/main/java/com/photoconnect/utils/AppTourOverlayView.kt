@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.photoconnect.R
 
@@ -95,7 +96,7 @@ class AppTourOverlayView(
         tvProgress.text = context.getString(R.string.tour_progress, index + 1, steps.size)
         announceForAccessibility("${tvTitle.text}. ${tvBody.text}")
         
-        updateControls(step.actionDriven && step.targetId != null)
+        updateControls()
 
         val bottomNavClient = activity.findViewById<BottomNavigationView>(R.id.bottomNav)
         val bottomNavTaker = activity.findViewById<BottomNavigationView>(R.id.bottomNavTaker)
@@ -116,27 +117,22 @@ class AppTourOverlayView(
         bottomNav: BottomNavigationView?,
         attempt: Int,
     ) {
-        currentTargetView = null
-        if (step.targetId != null) {
-            // Prefer bottom nav item if the targetId matches it
-            val navItem = bottomNav?.findViewById<View>(step.targetId)
-            currentTargetView = navItem ?: activity.findViewById(step.targetId)
-        }
+        currentTargetView = resolveTarget(step, bottomNav)
 
         val target = currentTargetView
-        if (target != null && target.isShown && target.width > 0 && target.height > 0 && attempt in 0..4) {
+        if (target != null && target.isShown && target.width > 0 && target.height > 0 && attempt in 0..10) {
             target.requestRectangleOnScreen(Rect(0, 0, target.width, target.height), true)
-            postDelayed({ renderStepTarget(step, bottomNav, 5) }, 180L)
+            postDelayed({ renderStepTarget(step, bottomNav, 11) }, 180L)
             return
         }
 
-        if ((target == null || !target.isShown || target.width == 0 || target.height == 0) && attempt < 4) {
+        if ((target == null || !target.isShown || target.width == 0 || target.height == 0) && attempt < 10) {
             postDelayed({ renderStepTarget(step, bottomNav, attempt + 1) }, 180L)
             return
         }
 
         val targetAvailable = target != null && target.isShown && target.width > 0 && target.height > 0
-        updateControls(step.actionDriven && targetAvailable)
+        updateControls()
         if (!targetAvailable) currentTargetView = null
 
         val newTargetRect = if (target != null && targetAvailable) {
@@ -179,9 +175,24 @@ class AppTourOverlayView(
         showStep(currentStepIndex + 1)
     }
 
-    private fun updateControls(waitForTargetTap: Boolean) {
-        btnNext.visibility = if (waitForTargetTap) View.GONE else View.VISIBLE
-        tvTapHint.visibility = if (waitForTargetTap) View.VISIBLE else View.GONE
+    private fun resolveTarget(
+        step: AppTourManager.TourStep,
+        bottomNav: BottomNavigationView?,
+    ): View? {
+        if (step.targetId == R.id.rvTakers) {
+            fun firstCard(listId: Int): View? {
+                val list = activity.findViewById<RecyclerView>(listId) ?: return null
+                return list.findViewHolderForAdapterPosition(0)?.itemView ?: list.getChildAt(0)
+            }
+            return firstCard(R.id.rvTakers) ?: firstCard(R.id.rvFeatured)
+        }
+        val targetId = step.targetId ?: return null
+        return bottomNav?.findViewById(targetId) ?: activity.findViewById(targetId)
+    }
+
+    private fun updateControls() {
+        btnNext.visibility = View.VISIBLE
+        tvTapHint.visibility = View.GONE
         (btnNext as? TextView)?.text = context.getString(
             if (currentStepIndex == steps.lastIndex) R.string.tour_done else R.string.tour_next
         )
@@ -306,17 +317,7 @@ class AppTourOverlayView(
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_UP) {
-            val step = steps.getOrNull(currentStepIndex)
-            if (step?.actionDriven == true && currentTargetView != null && currentTargetRect != null) {
-                if (currentTargetRect!!.contains(event.x, event.y)) {
-                    currentTargetView?.performClick()
-                    nextStep()
-                    return true
-                }
-            }
-        }
-        // Always consume touch to prevent interaction with background
+        // The tour uses one predictable Next button and blocks background actions.
         return true
     }
 
